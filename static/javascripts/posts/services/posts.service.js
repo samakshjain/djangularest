@@ -40,9 +40,10 @@
     * @returns {Promise}
     * @memberOf thinkster.posts.services.Posts
     */
-    function create(content) {
+    function create(author,content) {
       return $http.post('/api/v1/posts/', {
-        content: content
+        author: author,
+        content: content,
       });
     }
 

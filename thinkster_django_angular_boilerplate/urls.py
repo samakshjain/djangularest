@@ -10,7 +10,9 @@ from posts.views import AccountPostsViewSet, PostViewSet
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
+
 router.register(r'posts', PostViewSet)
+
 accounts_router = routers.NestedSimpleRouter(
     router, r'accounts', lookup='account'
 )
