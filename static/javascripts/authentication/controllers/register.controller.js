@@ -3,7 +3,7 @@
 
   angular
     .module('thinkster.authentication.controllers')
-    .controller('RegisterController', RegisterController);
+    .controller('RegisterController', RegisterController)
     .directive('fileModel', ['$parse', function ($parse) {
         return {
             restrict: 'A',

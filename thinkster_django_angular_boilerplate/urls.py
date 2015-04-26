@@ -7,6 +7,9 @@ from authentication.views import AccountViewSet, LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 from posts.views import AccountPostsViewSet, PostViewSet
+from django.contrib import admin
+
+admin.autodiscover()
 
 router = routers.SimpleRouter()
 router.register(r'accounts', AccountViewSet)
@@ -25,6 +28,8 @@ urlpatterns = patterns(
     url(r'^api/v1/', include(accounts_router.urls)),
     url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
-    url('^.*$', IndexView.as_view(), name='index'),
-
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
+    {'document_root': settings.MEDIA_ROOT,
+    'show_indexes' : True}),
+    url('^.*$', IndexView.as_view(), name='index')
+)

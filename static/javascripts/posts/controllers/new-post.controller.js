@@ -24,8 +24,8 @@
       });
 
       $scope.closeThisDialog();
-      var authr = Authentication.getAuthenticatedAccount();
-      Posts.create(authr,vm.content).then(createPostSuccessFn, createPostErrorFn);
+      
+      Posts.create(vm.content, vm.pic).then(createPostSuccessFn, createPostErrorFn);
 
 
 

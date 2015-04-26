@@ -9,6 +9,7 @@
       'thinkster.layout',
       'thinkster.posts',
       'thinkster.utils',
+      'file-model'
     ]);
 
   angular
